@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Katherine Zhang — Designer & Strategist</title>
+  <title>Katherine Zhang — Data, AI & Product</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     /* ── HERO ── */
@@ -48,6 +48,11 @@
       color:var(--charcoal);margin-bottom:0.3rem;
     }
     .hero-name em { font-style:italic;color:var(--sage-dark); }
+    .hero-headline {
+      font-family:'DM Serif Display',serif;
+      font-size:clamp(1.3rem,2vw,1.65rem);line-height:1.3;
+      color:var(--charcoal);margin:1rem 0 1rem;max-width:520px;
+    }
     .hero-subtitle {
       font-size:1.05rem;color:var(--mid-gray);line-height:1.7;
       margin-bottom:2.5rem;max-width:460px;font-weight:300;
@@ -105,6 +110,8 @@
       padding:0.8rem 1rem;font-size:0.84rem;font-weight:500;color:var(--charcoal);
       display:flex;align-items:center;gap:0.5rem;transition:all 0.2s;
     }
+    .skill-group + .skill-group { margin-top:1.4rem; }
+    .skill-group-title { font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:0.6rem; }
     .skill-chip:hover { border-color:var(--sage);background:var(--sage-light);transform:translateY(-2px); }
 
     .education-block { display:flex;flex-direction:column;gap:1.2rem; }
@@ -237,6 +244,7 @@
     @media(max-width:900px){
       #hero{grid-template-columns:1fr;text-align:center;padding:7rem 2rem 3rem;}
       .hero-ctas{justify-content:center;}
+      .hero-headline,.hero-subtitle{margin-left:auto;margin-right:auto;}
       .hero-visual{display:none;}
       #about{grid-template-columns:1fr;gap:2.5rem;padding:4rem 2rem;}
       #work{padding:4rem 2rem;}
@@ -281,8 +289,9 @@
   <div class="hero-text">
     <div class="hero-tag">Open to opportunities</div>
     <h1 class="hero-name">Hi, I'm<br><em>Katherine</em><br>Zhang</h1>
+    <p class="hero-headline">Data, AI &amp; product-driven problem solver turning insights into practical digital solutions.</p>
     <p class="hero-subtitle">
-      Designer & strategist focused on product design, product strategy, and human-centered experiences — bridging research, design, and execution to build meaningful, inclusive technology.
+      I combine data analysis, product thinking, and design to understand complex problems, identify opportunities, and translate insights into products people can actually use.
     </p>
     <div class="hero-ctas">
       <a href="#work" class="btn-primary">View My Work</a>
@@ -300,7 +309,7 @@
       </div>
       <div class="hero-float-card card-2">
         <div class="card-icon rose">✦</div>
-        <div><div class="card-label">Product & UI/UX Designer</div></div>
+        <div><div class="card-label">Data × AI × Product</div></div>
       </div>
     </div>
   </div>
@@ -311,10 +320,11 @@
   <div class="about-top">
   <div class="about-text reveal">
     <div class="section-label">About Me</div>
-    <h2 class="section-title">Design with<br><em style="font-family:'DM Serif Display',serif;font-style:italic;">purpose</em></h2>
-    <p>I'm a product designer and strategist who cares deeply about how technology shapes everyday human experiences — especially building systems that are thoughtful, inclusive, and accessible to people with different abilities and backgrounds.</p>
-    <p>My background spans UI/UX design, interaction design, product strategy, UX research, and agile planning. I’m especially strong at turning ambiguous ideas into clear user flows, polished interfaces, and rapid prototypes that help teams test, communicate, and iterate quickly. I thrive at the intersection of design and product management, translating research insights into meaningful, well-executed digital experiences.</p>
-    <p>I recently graduated from Cornell University with a Master of Professional Studies in Information Science, building on a B.S. in Informatics from the University of Washington. Outside of work, I love hiking, skiing, traveling, and discovering new cuisines — and I'm a proud dog person.</p>
+    <h2 class="section-title">Where data meets<br><em style="font-family:'DM Serif Display',serif;font-style:italic;">product</em></h2>
+    <p>I’m naturally drawn to problems that sit between data, technology, and user experience.</p>
+    <p>I like figuring out what the data is telling us, what users actually need, and how those insights can come together in a better product. My approach often starts with research and analysis — using tools like SQL, Python, and R to uncover patterns, evaluate opportunities, and support product decisions.</p>
+    <p>From there, I use Figma and rapid prototyping to turn insights into user flows, product concepts, and interactive experiences that teams can test and build. My work spans product analytics, UX research, data visualization, AI product development, and cross-functional collaboration with engineers and stakeholders.</p>
+    <p>I recently graduated from Cornell University with an MPS in Information Science, building on a B.S. in Informatics from the University of Washington. Outside of work, I enjoy hiking, skiing, traveling, and discovering new food. And I’m a huge animal person! I love dogs and cats.</p>
     <br/>
     <a href="#work" class="btn-primary" style="width:fit-content;">Explore My Work →</a>
 </div>
@@ -335,15 +345,39 @@
   <div class="about-bottom">
     <div class="reveal">
       <div class="section-label">Skills</div>
-      <div class="skills-grid">
-        <div class="skill-chip">Figma</div>
-        <div class="skill-chip">UX Research</div>
-        <div class="skill-chip">Interaction Design</div>
-        <div class="skill-chip">Accessibility</div>
-        <div class="skill-chip">Product Strategy</div>
-        <div class="skill-chip">Prototyping</div>
-        <div class="skill-chip">Agile Planning</div>
-        <div class="skill-chip">Design Systems</div>
+      <div class="skill-group">
+        <div class="skill-group-title">Data &amp; Analytics</div>
+        <div class="skills-grid">
+          <div class="skill-chip">SQL</div>
+          <div class="skill-chip">Python</div>
+          <div class="skill-chip">R</div>
+          <div class="skill-chip">Excel</div>
+          <div class="skill-chip">Tableau</div>
+          <div class="skill-chip">Power BI</div>
+          <div class="skill-chip">Data Analysis</div>
+          <div class="skill-chip">Data Visualization</div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Product &amp; Research</div>
+        <div class="skills-grid">
+          <div class="skill-chip">Product Analytics</div>
+          <div class="skill-chip">UX Research</div>
+          <div class="skill-chip">Requirements Gathering</div>
+          <div class="skill-chip">Experimentation</div>
+          <div class="skill-chip">Roadmapping</div>
+          <div class="skill-chip">Stakeholder Communication</div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Design &amp; Prototyping</div>
+        <div class="skills-grid">
+          <div class="skill-chip">Figma</div>
+          <div class="skill-chip">Prototyping</div>
+          <div class="skill-chip">Interaction Design</div>
+          <div class="skill-chip">Design Systems</div>
+          <div class="skill-chip">Usability Testing</div>
+        </div>
       </div>
     </div>
     <div class="reveal">
@@ -354,7 +388,7 @@
           <div>
             <div class="edu-degree">M.P.S. Information Science</div>
             <div class="edu-school">Cornell University</div>
-            <div class="edu-desc">Product design, interaction design, and user research. Focus on inclusive, human-centered digital systems.</div>
+            <div class="edu-desc">Coursework spanning data engineering, machine learning, business intelligence, data visualization, and product development, with a focus on applying data and technology to real-world product problems.</div>
           </div>
         </div>
         <div class="edu-item">
@@ -362,7 +396,7 @@
           <div>
             <div class="edu-degree">B.S. Informatics</div>
             <div class="edu-school">University of Washington</div>
-            <div class="edu-desc">Human-centered design, interaction design, and information systems. UX research, prototyping, and accessible digital experiences.</div>
+            <div class="edu-desc">Coursework spanning database design, statistical methods, product and information systems management, and research methods, building a foundation across data, technology, product, and human-centered design.</div>
           </div>
         </div>
         </div>
@@ -455,7 +489,7 @@
   <div class="contact-text reveal">
     <div class="section-label">Get in Touch</div>
     <h2 class="section-title">Let's work<br><em style="font-family:'DM Serif Display',serif;font-style:italic;">together</em></h2>
-    <p>I'm currently open to product design, UX/UI design, and product strategy roles and internships. Whether you have a project in mind or just want to chat about design — I'd love to hear from you!</p>
+    <p>I’m currently open to Product Analyst, Data Analyst, and AI/Product opportunities. I’m especially interested in roles where data, product thinking, and design come together to solve meaningful problems. Whether you have a project in mind or just want to chat — I’d love to hear from you!</p>
     <div class="contact-links">
       <a href="mailto:katherinezhang323@outlook.com" class="contact-link-item">
         <div class="contact-icon sand">✉️</div>

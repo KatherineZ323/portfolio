@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Personal design portfolio and GitHub Pages static site for **Katherine Zhang**, a product designer and UX/UI strategist.
+Personal design portfolio and GitHub Pages static site for **Katherine Zhang**, a Data + AI + Product problem solver who combines data analysis, product thinking, and design (Figma prototyping, UX research) to turn insights into practical digital solutions.
 
 - **URL**: `KatherineZ323.github.io`
 - **Stack**: Pure HTML + CSS + vanilla JS — no frameworks, no build tools, no dependencies
@@ -49,11 +49,12 @@ Personal design portfolio and GitHub Pages static site for **Katherine Zhang**, 
 index.html          ← Main page (all sections)
 style.css           ← Global styles (nav, buttons, footer, reveals)
 assets/
-  images/
-    pic.jpg         ← Katherine's portrait photo
-    dog.jpg         ← Photo of her dog Lucky
-    herophoto.png   ← Hero section photo (currently NOT linked correctly)
- projects/          ← ⚠️ Directory name has a leading space on disk
+  images/           ← 60+ images: portrait (pic.jpg), dog (dog.jpg), herophoto.png,
+                       plus per-project images prefixed altamed_ / rural_ / pawpals_ /
+                       wanderpal_ / climate_ / olympians_
+  videos/
+    olympinas_video.mp4  ← Olympians demo video (filename typo "olympinas")
+projects/
   altamed.html
   rural-health.html
   pawpals.html
@@ -65,12 +66,13 @@ assets/
 ### Main Page Sections (index.html)
 
 1. **Nav** — Fixed, frosted-glass, logo + links + dropdown "Work" menu with sub-links
-2. **Hero** — Full-viewport, 2-col grid. Animated floating blobs (blur), morphing photo shape, floating info cards. Tag "Open to opportunities."
-3. **About** — Bio text, photo collage (pic.jpg + dog.jpg), skills grid, education timeline
+2. **Hero** — Full-viewport, 2-col grid. Name, Data/AI/Product headline + supporting text. Animated floating blobs (blur), morphing photo shape, floating info cards. Tag "Open to opportunities."
+3. **About** — Bio text, photo collage (pic.jpg + dog.jpg), grouped skills (Data & Analytics / Product & Research / Design & Prototyping), education timeline
 4. **Work** — Featured Projects (2-col grid): AltaMed, Rural Health, PawPals, WanderPal. Academic Projects: Climate Scrollytelling, Olympians
-5. **Experience** — Dark charcoal bg, 3 experience entries in list layout
-6. **Contact** — 2-col: contact links (email/LinkedIn/phone) + message form (front-end only, no backend)
-7. **Footer** — Dark, copyright + LinkedIn link
+5. **Contact** — 2-col: contact links (email/LinkedIn/phone) + message form (front-end only, no backend)
+6. **Footer** — Dark, copyright + LinkedIn link
+
+> Note: the Experience section markup was removed from `index.html` (commit `57d6ea6`); its CSS (`#experience`, `.exp-item`) is still in the file. Project pages still link to `../index.html#experience`, which now goes nowhere.
 
 ---
 
@@ -102,7 +104,7 @@ Each project page reuses the same layout pattern:
 
 ---
 
-## Known Bugs (as of 2025-05-30, all fixed 2026-05-30)
+## Known Bugs (all fixed; re-verified 2026-09-29)
 
 | # | File | Line | Bug | Fix |
 |---|---|---|---|---|
@@ -118,27 +120,27 @@ Each project page reuses the same layout pattern:
 
 ## Person: Katherine Zhang
 
-- **Role**: Product Designer & UX Strategist
+- **Positioning**: Data × AI × Product — data analysis (SQL / Python / R), product analytics, UX research, AI product, and Figma prototyping; cross-functional work with engineers and stakeholders
 - **Education**: M.P.S. Information Science, Cornell University (2025–2026); B.S. Informatics, University of Washington (2021–2025)
-- **Skills**: Figma, UX Research, Interaction Design, Accessibility, Product Strategy, Prototyping, Agile Planning, Design Systems
+- **Skills** (grouped on the site): Data & Analytics (SQL, Python, R, Excel, Tableau, Power BI, Data Analysis, Data Visualization); Product & Research (Product Analytics, UX Research, Requirements Gathering, Experimentation, Roadmapping, Stakeholder Communication); Design & Prototyping (Figma, Prototyping, Interaction Design, Design Systems, Usability Testing)
 - **Contact**: katherinezhang323@outlook.com | LinkedIn: kat-zhang-2189692b3 | +1 (206) 228-7198
-- **Status**: Open to product design, UX/UI design, and product strategy roles/internships
+- **Status**: Open to Product Analyst, Data Analyst, and AI/Product roles
 
 ---
 
 ## Development Plan / TODOs
 
 ### Immediate Bug Fixes
-- [ ] Fix hero photo image path (`index.html:296`)
-- [ ] Fix broken `<a` tag on AltaMed card (`index.html:384`)
-- [ ] Fix Olympians nav link duplicate path (`index.html:269`)
-- [ ] Fix all project page nav links (currently use `index.html` instead of `../index.html`)
-- [ ] Fix broken `<href=...>` pattern in all project page dropdowns
-- [ ] Rename ` projects/` directory to `projects/` (remove leading space)
+- [x] Fix hero photo image path (`index.html:295`)
+- [x] Fix broken `<a` tag on AltaMed card (`index.html:383`)
+- [x] Fix Olympians nav link duplicate path
+- [x] Fix all project page nav links (now use `../index.html`)
+- [x] Fix broken `<href=...>` pattern in all project page dropdowns
+- [x] Rename ` projects/` directory to `projects/` (remove leading space)
 
 ### Content / Design
-- [ ] Add actual Figma mockup screenshots / case study images to project pages (currently placeholders with gradient divs)
-- [ ] Add herophoto.png to the hero section once path is fixed
+- [x] Case study images added to project pages and homepage cards
+- [x] herophoto.png linked in hero section
 - [ ] Consider adding a Resume/CV download button in the hero or nav
 - [ ] Add real project links (Figma prototypes, live demos, TestFlight link for Olympians)
 
@@ -161,5 +163,5 @@ Each project page reuses the same layout pattern:
 - **All styles are either** in `style.css` (shared) or inline `<style>` blocks inside each page
 - **JS is minimal** — scroll reveal observer + nav shadow + fake form submit, all in `<script>` at bottom of `index.html`
 - **Fonts loaded via Google Fonts CDN** — no local font files
-- **Images**: only 3 images exist (`pic.jpg`, `dog.jpg`, `herophoto.png`); project pages use CSS gradient placeholders
+- **Images**: all in `assets/images/`, referenced with relative paths (`../assets/...` from project pages); one video in `assets/videos/`
 - **Each project page** is self-contained with its own `<style>` block and repeated nav/footer markup
