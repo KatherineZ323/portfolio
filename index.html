@@ -104,13 +104,13 @@
     .about-text p { color:var(--mid-gray);line-height:1.8;margin-bottom:1.2rem;font-size:1rem; }
     .about-right { display:flex;flex-direction:column;gap:2rem; }
 
-    .skills-grid { display:grid;grid-template-columns:1fr 1fr;gap:0.8rem; }
+    .skills-grid { display:flex;flex-wrap:wrap;gap:0.7rem; }
     .skill-chip {
       background:var(--cream);border:1px solid var(--light-gray);border-radius:12px;
-      padding:0.8rem 1rem;font-size:0.84rem;font-weight:500;color:var(--charcoal);
+      padding:0.6rem 1.1rem;font-size:0.84rem;font-weight:500;color:var(--charcoal);width:auto;
       display:flex;align-items:center;gap:0.5rem;transition:all 0.2s;
     }
-    .skill-group + .skill-group { margin-top:1.4rem; }
+    .skill-group + .skill-group { margin-top:1.2rem; }
     .skill-group-title { font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:0.6rem; }
     .skill-chip:hover { border-color:var(--sage);background:var(--sage-light);transform:translateY(-2px); }
 
@@ -120,14 +120,42 @@
     .edu-degree { font-weight:600;font-size:0.95rem; }
     .edu-school { color:var(--mid-gray);font-size:0.85rem;margin-top:0.2rem; }
     .edu-desc { color:var(--mid-gray);font-size:0.82rem;margin-top:0.3rem;line-height:1.5; }
-    .about-photos { position:relative; height:460px; }
-    .about-photo { position:absolute; border-radius:20px; overflow:hidden; box-shadow:0 16px 48px rgba(0,0,0,0.12); transition:transform 0.3s; }
-    .about-photo:hover { transform:scale(1.02) rotate(0deg) !important; }
-    .about-photo img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
-    .photo-main { width:260px; height:340px; top:0; left:40px; transform:rotate(-2deg); z-index:2; }
-    .photo-dog { width:220px; height:260px; bottom:30px; right:20px; transform:rotate(2.5deg); z-index:3; border:4px solid var(--white); }
-    .photo-caption { position:absolute; bottom:14px; right:10px; background:var(--white); border-radius:100px; padding:0.35rem 0.9rem; font-size:0.75rem; font-weight:600; color:var(--mid-gray); box-shadow:0 4px 16px rgba(0,0,0,0.1); z-index:5; white-space:nowrap; }
-    .photo-sticker { position:absolute; top:-16px; left:20px; background:var(--sage-light); border-radius:100px; padding:0.35rem 0.9rem; font-size:0.75rem; font-weight:600; color:var(--sage-dark); z-index:4; }
+    /* Fanned photo cards: three <button> cards rotate around their bottom centre; click selects one */
+    .about-photos { position:relative; aspect-ratio:1.1; }
+    .fan-card {
+      position:absolute; bottom:18%; display:block; padding:0; margin:0; border:0; background:none;
+      font:inherit; color:inherit; cursor:pointer; -webkit-tap-highlight-color:transparent;
+      transform-origin:50% 100%;
+      transform:translateY(var(--y,0px)) rotate(var(--r,0deg)) scale(var(--s,1));
+      transition:transform 0.3s ease-out;
+    }
+    .fan-card:focus { outline:none; }
+    .fan-left  { --r:-10deg; width:32%; left:6%;  z-index:2; }
+    .fan-lucky { --r:0deg;   width:36%; left:32%; z-index:3; }
+    .fan-cat   { --r:10deg;  width:32%; left:62%; z-index:2; }
+    .fan-photo {
+      display:block; width:100%; aspect-ratio:3/4; overflow:hidden;
+      border:4px solid var(--white); border-radius:20px;
+      box-shadow:0 12px 36px rgba(0,0,0,0.12); transition:box-shadow 0.3s ease-out;
+    }
+    .fan-photo img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
+    .fan-cat .fan-photo img { transform:scale(1.55); transform-origin:60% 58%; }
+    .fan-card:hover { --y:-8px; --s:1.02; z-index:4; }
+    .fan-card:hover .fan-photo { box-shadow:0 18px 44px rgba(0,0,0,0.18); }
+    .fan-card:focus-visible .fan-photo { outline:3px solid var(--accent); outline-offset:3px; }
+    .has-selection .fan-card:not(.is-selected) { --s:0.97; }
+    .has-selection .fan-card:not(.is-selected):hover { --y:-8px; --s:1; }
+    .fan-card.is-selected { --r:0deg; --y:-22px; --s:1.1; z-index:10; }
+    .fan-card.is-selected .fan-photo { box-shadow:0 24px 56px rgba(0,0,0,0.22); }
+    .photo-tag { position:absolute; width:fit-content; border-radius:100px; padding:0.35rem 0.9rem; font-size:0.75rem; font-weight:600; white-space:nowrap; z-index:2; pointer-events:none; }
+    .photo-sticker { top:-13px; left:6px; background:var(--sage-light); color:var(--sage-dark); }
+    .photo-caption { bottom:-13px; left:0; right:0; margin:0 auto; background:var(--white); color:var(--mid-gray); box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+    .photo-caption-cat { top:-13px; right:6px; background:var(--white); color:var(--mid-gray); box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+    @media (prefers-reduced-motion:reduce) {
+      .fan-card, .fan-photo { transition:none; }
+      .fan-card:hover, .has-selection .fan-card:not(.is-selected), .has-selection .fan-card:not(.is-selected):hover, .fan-card.is-selected { --y:0px; --s:1; }
+      .fan-card.is-selected .fan-photo { outline:3px solid var(--sage-dark); outline-offset:2px; }
+    }
     .about-bottom { display:grid; grid-template-columns:1fr 1fr; gap:4rem; padding-top:4rem; border-top:1px solid var(--light-gray); }
 
     /* ── WORK ── */
@@ -246,7 +274,18 @@
       .hero-ctas{justify-content:center;}
       .hero-headline,.hero-subtitle{margin-left:auto;margin-right:auto;}
       .hero-visual{display:none;}
-      #about{grid-template-columns:1fr;gap:2.5rem;padding:4rem 2rem;}
+      #about{padding:4rem 2rem;}
+      .about-top,.about-bottom{grid-template-columns:1fr;gap:2.5rem;}
+      .about-top{margin-bottom:3rem;}
+      .about-bottom{padding-top:3rem;}
+      .about-photos{aspect-ratio:1.1;max-width:420px;width:100%;margin:0 auto;}
+      .fan-card{bottom:14%;}
+      .fan-left{--r:-5deg;width:34%;left:0;}
+      .fan-lucky{width:40%;left:30%;}
+      .fan-cat{--r:5deg;width:34%;left:66%;}
+      .photo-tag{font-size:0.62rem;padding:0.28rem 0.5rem;}
+      .photo-sticker{left:0;}
+      .photo-caption-cat{right:-12px;}
       #work{padding:4rem 2rem;}
       .projects-grid{grid-template-columns:1fr;}
       .project-card.featured{grid-column:span 1;grid-template-columns:1fr;}
@@ -330,15 +369,19 @@
 </div>
 
   <!-- Photo collage -->
-  <div class="about-photos reveal">
-    <div class="about-photo photo-main">
-      <img src="assets/images/pic.jpg" alt="Katherine Zhang" />
-    </div>
-    <div class="about-photo photo-dog">
-      <img src="assets/images/dog.jpg" alt="Katherine and her dog" />
-    </div>
-    <div class="photo-caption">🐾 my little buddy - Lucky</div>
-    <div class="photo-sticker">✦ Cornell MPS '26</div>
+  <div class="about-photos reveal" id="photoFan">
+    <button type="button" class="fan-card fan-left" aria-pressed="false">
+      <span class="fan-photo"><img src="assets/images/pic.jpg" alt="Katherine Zhang at the University of Washington with the Husky mascot" /></span>
+      <span class="photo-tag photo-sticker">✦ Let's Go Huskies!</span>
+    </button>
+    <button type="button" class="fan-card fan-lucky" aria-pressed="false">
+      <span class="fan-photo"><img src="assets/images/dog.jpg" alt="Katherine and her dog Lucky" /></span>
+      <span class="photo-tag photo-caption">🐾 my little buddy — Lucky</span>
+    </button>
+    <button type="button" class="fan-card fan-cat" aria-pressed="false">
+      <span class="fan-photo"><img src="assets/images/bog.jpg" alt="Katherine's black and white cat, Bog" /></span>
+      <span class="photo-tag photo-caption-cat">🐈‍⬛ my tiny coworker - Bog</span>
+    </button>
   </div>
   </div>
 
@@ -534,6 +577,17 @@
   window.addEventListener('scroll',()=>{
     document.querySelector('nav').style.boxShadow = window.scrollY>20?'0 4px 20px rgba(0,0,0,0.07)':'none';
   });
+
+  const photoFan = document.getElementById('photoFan');
+  if (photoFan) {
+    const fanCards = [...photoFan.querySelectorAll('.fan-card')];
+    fanCards.forEach(card => card.addEventListener('click', () => {
+      const wasSelected = card.classList.contains('is-selected');
+      fanCards.forEach(c => { c.classList.remove('is-selected'); c.setAttribute('aria-pressed','false'); });
+      photoFan.classList.toggle('has-selection', !wasSelected);
+      if (!wasSelected) { card.classList.add('is-selected'); card.setAttribute('aria-pressed','true'); }
+    }));
+  }
 
   function handleSubmit(e){
     const btn=e.target;
