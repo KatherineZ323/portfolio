@@ -186,6 +186,8 @@
     .project-img.wander{background:#1B2E3C;}
     .project-img.climate{background:linear-gradient(135deg,#C4D4B8 0%,#8ABC9E 100%);}
     .project-img.game{background:#1A1410;}
+    .project-img.nyc{background:linear-gradient(135deg,#D8E0D0 0%,#8AABBC 100%);}
+    .project-img.nyc .nyc-chart{position:relative;height:calc(100% - 3rem);width:auto;max-width:calc(100% - 2rem);border-radius:10px;box-shadow:0 8px 28px rgba(44,44,44,.18);background:#fff;}
 
     .project-img-label {
       position:absolute;bottom:14px;left:14px;
@@ -305,6 +307,9 @@
     <li class="nav-dropdown">
       <a href="#work">Work</a>
       <div class="dropdown-menu">
+        <div class="dropdown-section-label">Data Analysis</div>
+        <a href="projects/nyc-restaurant.html">NYC Restaurant Inspections</a>
+        <div class="dropdown-divider"></div>
         <div class="dropdown-section-label">Featured Projects</div>
         <a href="projects/altamed.html">AltaMed D&A Portal</a>
         <a href="projects/rural-health.html">Virtual Rural Health Clinic</a>
@@ -457,6 +462,15 @@
     </div>
   </div>
   <div class="projects-grid">
+    <a href="projects/nyc-restaurant.html" class="project-card featured reveal">
+      <div class="project-img nyc"><img class="nyc-chart" src="assets/images/nyc_card_chart.png" alt="NYC restaurant inspection score distribution (Tableau)"><div class="project-img-label">Data Analysis · Python · SQL</div></div>
+      <div class="project-info">
+        <div class="project-tags"><span class="project-tag">Data Analysis</span><span class="project-tag">SQL</span><span class="project-tag">Tableau</span></div>
+        <div class="project-title">NYC Restaurant Inspection Analysis</div>
+        <p class="project-desc">Cleaned and modeled 294K inspection records in Python and PostgreSQL, then showed that scores bunch just below grade cutoffs and that inspection history predicts serious failures better than the posted grade — a history-based ranking catches 36% of them by inspecting the top 20% of restaurants, vs. 31% by grade. Published as a 4-page interactive Tableau story.</p>
+        <span class="project-link">Explore Project</span>
+      </div>
+    </a>
     <a href="projects/altamed.html" class="project-card featured reveal">
       <div class="project-img altamed"><img src="assets/images/altamed_heroimg.png" alt="AltaMed Data & Analytics Portal" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;"><div class="project-img-label">Healthcare · UX/UI</div></div>
       <div class="project-info">
@@ -542,6 +556,10 @@
         <div class="contact-icon blue">💼</div>
         <div><div class="contact-link-label">LinkedIn</div><div class="contact-link-value">kat-zhang-2189692b3</div></div>
       </a>
+      <a href="https://github.com/KatherineZ323" target="_blank" rel="noopener" class="contact-link-item">
+        <div class="contact-icon sand">💻</div>
+        <div><div class="contact-link-label">GitHub</div><div class="contact-link-value">KatherineZ323</div></div>
+      </a>
       <a href="tel:+12062287198" class="contact-link-item">
         <div class="contact-icon green">📞</div>
         <div><div class="contact-link-label">Phone</div><div class="contact-link-value">+1 (206) 228-7198</div></div>
@@ -562,7 +580,7 @@
 
 <footer>
   <span>© 2025 Katherine Zhang. All rights reserved.</span>
-  <span>Designed with ♡ | <a href="https://www.linkedin.com/in/kat-zhang-2189692b3/" target="_blank">LinkedIn</a></span>
+  <span>Designed with ♡ | <a href="https://github.com/KatherineZ323" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/kat-zhang-2189692b3/" target="_blank">LinkedIn</a></span>
 </footer>
 
 <script>
